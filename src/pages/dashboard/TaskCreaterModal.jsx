@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import DateTimePicker from 'react-datetime-picker';
 
-const TaskCreatorModal = ({ open, handleHide }) => {
-  const [reqBody, setReqBody] = useState({
-    title: '',
-    description: '',
-    date: new Date(), 
-   });
+const TaskCreatorModal = ({ open, handleHide, reqBody, setReqBody }) => {
+
 
   const handleReqBodyChange = (name, value) => {
     setReqBody((prevState) => ({
