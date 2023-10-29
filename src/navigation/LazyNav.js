@@ -1,6 +1,6 @@
-const LazyNav = ()=>{
-    return (
-        <div>this is LazyNav</div>
-    )
-}
-export default LazyNav;
+import { lazy } from "react";
+export const LazyLanding = lazy(() =>
+  import("../pages/landingPage/MainLanding.jsx")
+);
+export const LazyLogin = lazy(() => import("../pages/auth//login/Login.jsx"));
+export const LazySignUp = lazy(() => import("../pages/auth/signup/SignUp.jsx"));

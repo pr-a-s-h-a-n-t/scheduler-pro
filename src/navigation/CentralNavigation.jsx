@@ -1,7 +1,17 @@
-const CentralNavigation = ()=>{
-    return(
-        <div>this is CentralNavigation</div>
-    )
-}
+import { createBrowserRouter } from "react-router-dom";
+import { LazyLanding, LazyLogin, LazySignUp } from "./LazyNav.js";
 
-export default CentralNavigation;
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LazyLanding />,
+  },
+  {
+    path: "/login",
+    element: <LazyLogin />,
+  },
+  {
+    path: "/signup",
+    element: <LazySignUp />,
+  },
+]);
