@@ -68,3 +68,8 @@
   font-size: 16px;
   border-radius: 8px;
 }
+
+.signUp_clk{
+    color: #090dc8 !important;
+    cursor: pointer;
+}

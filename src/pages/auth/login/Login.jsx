@@ -2,11 +2,15 @@ import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import styles from "./Login.module.css";
 import calenderIcon from "../../../assets/login.png";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const initialState = {
     email: "",
     password: "",
   };
+
+  const navigateUser = useNavigate();
+
   const [reqBody, setReqBody] = useState(initialState);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -69,6 +73,15 @@ const Login = () => {
         <button className={styles.btn} onClick={handleSubmit}>
           Login
         </button>
+        <div>
+          Don't have an account?{" "}
+          <strong
+            className={styles.signUp_clk}
+            onClick={() => navigateUser("/signup")}
+          >
+            Sign up
+          </strong>
+        </div>
       </div>
     </div>
   );
