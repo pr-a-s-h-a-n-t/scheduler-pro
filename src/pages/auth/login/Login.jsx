@@ -28,13 +28,13 @@ const Login = () => {
   return (
     <div className={styles.login}>
       <div className={styles.calender_icons}>
-        <img src={calenderIcon} alt="" />
+        <img src={calenderIcon} alt="calender icon" />
       </div>
       <div className={styles.inner}>
         <input
           className={styles.input}
-          type="text"
-          placeholder="Email"
+          type="email"
+          placeholder="Enter Email"
           value={reqBody.email}
           onChange={(e) => handleReqBodyChange("email", e.target.value)}
         />
@@ -42,7 +42,7 @@ const Login = () => {
           <input
             className={`${styles.password_input} ${styles.input}`}
             type={isVisible ? "text" : "password"}
-            placeholder="Password"
+            placeholder="Enter Password"
             value={reqBody.password}
             onChange={(e) => handleReqBodyChange("password", e.target.value)}
           />
