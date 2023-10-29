@@ -1,17 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
 import { LazyLanding, LazyLogin, LazySignUp } from "./LazyNav.js";
+import { Routes, Route } from "react-router-dom";
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <LazyLanding />,
-  },
-  {
-    path: "/login",
-    element: <LazyLogin />,
-  },
-  {
-    path: "/signup",
-    element: <LazySignUp />,
-  },
-]);
+const CentralNavigation = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<LazyLanding />} />
+      <Route path="/login" element={<LazyLogin />} />
+      <Route path="/signup" element={<LazySignUp />} />
+    </Routes>
+  );
+};
+
+export default CentralNavigation;
