@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import styles from "../Auth.module.css";
-import signUp from "../../../assets/signup.png";
+import styles from "./Auth.module.css";
+import calenderIcon from "../../assets/login.png";
 import { useNavigate } from "react-router-dom";
-
-const Signup = () => {
+const Login = () => {
   const initialState = {
     email: "",
     password: "",
@@ -23,19 +22,19 @@ const Signup = () => {
   };
 
   const handleSubmit = () => {
-    console.log("dispatch signup");
+    console.log("dispatch login");
   };
 
   return (
     <div className={styles.login}>
       <div className={styles.calender_icons}>
-        <img src={signUp} alt="sign up" />
+        <img src={calenderIcon} alt="calender icon" />
       </div>
       <div className={styles.inner}>
         <input
           className={styles.input}
-          type="text"
-          placeholder="Set Email"
+          type="email"
+          placeholder="Enter Email"
           value={reqBody.email}
           onChange={(e) => handleReqBodyChange("email", e.target.value)}
         />
@@ -43,7 +42,7 @@ const Signup = () => {
           <input
             className={`${styles.password_input} ${styles.input}`}
             type={isVisible ? "text" : "password"}
-            placeholder="Set Password"
+            placeholder="Enter Password"
             value={reqBody.password}
             onChange={(e) => handleReqBodyChange("password", e.target.value)}
           />
@@ -72,15 +71,15 @@ const Signup = () => {
         </div>
 
         <button className={styles.btn} onClick={handleSubmit}>
-          Signup
+          Login
         </button>
         <div>
-          Already have an account?{" "}
+          Don't have an account?{" "}
           <strong
             className={styles.signUp_clk}
-            onClick={() => navigateUser("/login")}
+            onClick={() => navigateUser("/signup")}
           >
-            Login
+            Sign up
           </strong>
         </div>
       </div>
@@ -88,4 +87,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
