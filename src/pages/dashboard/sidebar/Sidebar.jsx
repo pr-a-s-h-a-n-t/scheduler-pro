@@ -1,56 +1,50 @@
-// Sidebar.js
-import React, { useState } from "react";
-import { FiHome, FiActivity, FiSettings } from "react-icons/fi";
-import styles from "./Sidebar.module.css"; // Import the CSS module
-import Avatar from "../../../assets/login.png";
-const Sidebar = ({ Component }) => {
-  const [selectedTab, setSelectedTab] = useState("home");
+import React, {useState} from "react";
+import {Sidebar, Menu, MenuItem} from 'react-pro-sidebar';
+import {Link, useNavigate} from 'react-router-dom';
 
-  const handleTabClick = (tabName) => {
-    setSelectedTab(tabName);
-  };
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div className={styles.sidebar}>
-        <div className={styles.sidebar_prf_icon}>
-          <img
-            style={{ borderRadius: "50%" }}
-            width={"100%"}
-            height={"100%"}
-            src={Avatar}
-            alt="profile icons"
-          />
+const SidebarHOC = () => {
+    const naviagteUser = useNavigate();
+    const [collapsed, setCollapsed] = useState(false);
+
+    const pages = [
+
+        {
+            title: "Task",
+            link: "/task"
+        },
+
+    ]
+
+    const handleNavigator = (path) => {
+        naviagteUser(path)
+    }
+
+    return (
+        <div style={{display: 'flex', height: '100%', minHeight: '400px'}}>
+            <Sidebar collapsed={collapsed} collapsedWidth="60px" transitionDuration={1000}>
+                <Menu>
+                    <MenuItem> Documentation</MenuItem>
+                    <MenuItem> Calendar</MenuItem>
+                    <MenuItem> E-commerce</MenuItem>
+                    <MenuItem> Examples</MenuItem>
+                    {
+                        pages?.map((ele, index) => {
+                            return (
+                                <MenuItem onClick={() => handleNavigator(ele.link)} key={index}>{ele.title}</MenuItem>
+                            )
+                        })
+                    }
+                </Menu>
+            </Sidebar>
+            <main style={{padding: 10}}>
+                <div>
+                    <button className="sb-button" onClick={() => setCollapsed(!collapsed)}>
+                        Collapse
+                    </button>
+                </div>
+            </main>
         </div>
-        <ul>
-          <li
-            className={selectedTab === "home" ? styles.active : ""}
-            onClick={() => handleTabClick("home")}
-          >
-            <FiHome /> Home
-          </li>
-          <li
-            className={selectedTab === "activity" ? styles.active : ""}
-            onClick={() => handleTabClick("activity")}
-          >
-            <FiActivity /> Tasks
-          </li>
-          <li
-            className={selectedTab === "settings" ? styles.active : ""}
-            onClick={() => handleTabClick("settings")}
-          >
-            <FiSettings /> Settings
-          </li>
-        </ul>
-      </div>
-      <div className={styles.hoc_component_wrapper}>{Component}</div>
-    </div>
-  );
-};
-
-export default Sidebar;
+    );
+}
+export default SidebarHOC;

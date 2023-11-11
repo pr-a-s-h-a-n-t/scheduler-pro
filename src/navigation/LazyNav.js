@@ -4,6 +4,4 @@ export const LazyLanding = lazy(() =>
 );
 export const LazyLogin = lazy(() => import("../pages/auth/Login.jsx"));
 export const LazySignUp = lazy(() => import("../pages/auth/SignUp.jsx"));
-export const LazySideBar = lazy(() =>
-  import("../pages/dashboard/sidebar/Sidebar.jsx")
-);
+export const LazySideBar = lazy(() => import("../pages/dashboard/sidebar/Sidebar.jsx"));
