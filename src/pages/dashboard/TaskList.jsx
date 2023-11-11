@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import TaskCreatorModal from "./TaskCreaterModal";
-import TaskCard from "./TaskCard.jsx";
+import { useState } from "react";
+import TaskCreatorModal from "./createTaskModal/TaskCreaterModal.jsx";
+import TaskCard from "./taskCard/TaskCard.jsx";
+import {tasks} from "../../constant/Constant.js";
+
+
 
 const TaskList = () => {
-    const [taskList, setTaskList] = useState([]);
+    const [taskList, setTaskList] = useState(tasks);
     const [isTaskModal, setIsTaskModal] = useState(false);
     const [reqBody, setReqBody] = useState({
         title: '',

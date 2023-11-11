@@ -1,7 +1,13 @@
 #root {
-  margin: 0 ;
-  padding: 0;
-  text-align: center;
-  box-sizing: border-box ;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
 }
 
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    justify-content: flex-start;
+}

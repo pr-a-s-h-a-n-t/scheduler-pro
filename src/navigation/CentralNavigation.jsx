@@ -13,7 +13,7 @@ function Navs() {
     return (
 
         <Routes>
-            <Route path="/" element={<LazyLanding/>}/>
+            <Route index element={<LazyLanding/>}/>
             <Route
                 path="/login"
                 element={<LazyLogin/>}
