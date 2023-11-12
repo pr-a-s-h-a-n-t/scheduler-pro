@@ -1,4 +1,3 @@
-import React  from "react";
 import {
     Route,
     Routes,
@@ -22,14 +21,16 @@ function Navs() {
                 element={<LazySignUp/>}
             />
             <Route
-                path="/dashboard/testing"
+                path="/dashboard"
                 element={
                     <LazySideBar child={<div> this is test component.</div>}/>
                 }
             />
             <Route
-                path="/dashboard"
-                element={<LazySideBar/>}
+                path="/dashboard/scheduler"
+                element={
+                    <LazySideBar child={<div> this is Scheduler Page.</div>}/>
+                }
             />
         </Routes>
 
