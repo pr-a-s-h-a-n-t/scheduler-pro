@@ -25,3 +25,5 @@ export const tasks = [
         date: "12-14-23"
     }
 ];
+
+export const BASE_URL = `https://taskmanager-production-f206.up.railway.app/user`;

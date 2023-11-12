@@ -27,3 +27,31 @@ export const signupFailure = (error) => ({
   type: actionTypes.SIGNUP_FAILURE,
   error: error,
 });
+
+export const deleteRequest = () => ({
+  type: actionTypes.DELETE_REQUEST,
+});
+
+export const deleteSuccess = (user) => ({
+  type: actionTypes.DELETE_SUCCESS,
+  payload: user,
+});
+
+export const deleteFailure = (error) => ({
+  type: actionTypes.DELETE_FAILURE,
+  error: error,
+});
+
+export const updateRequest = () => ({
+  type: actionTypes.UPDATE_REQUEST,
+});
+
+export const updateSuccess = (user) => ({
+  type: actionTypes.UPDATE_SUCCESS,
+  payload: user,
+});
+
+export const updateFailure = (error) => ({
+  type: actionTypes.UPDATE_FAILURE,
+  error: error,
+});
