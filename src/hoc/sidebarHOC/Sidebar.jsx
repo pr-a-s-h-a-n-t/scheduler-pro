@@ -3,7 +3,7 @@ import {Sidebar, Menu} from 'react-pro-sidebar';
 import {useLocation, useNavigate} from 'react-router-dom';
 import styles from "./SideBar.module.css";
 import {FaRegCalendarAlt, FaRegChartBar, FaSignOutAlt} from "react-icons/fa";
-import { textToBinary } from "../../../utils/binaryConverter";
+import { textToBinary } from "../../utils/binaryConverter.js";
 
 const SidebarHOC = ({ child }) => {
   const navigateUser = useNavigate();

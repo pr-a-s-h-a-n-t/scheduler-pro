@@ -2,7 +2,7 @@ import {
     Route,
     Routes,
 } from "react-router-dom";
-import {LazyLanding, LazyLogin, LazySideBar, LazySignUp} from "./LazyNav.js";
+import {LazyLanding, LazyList, LazyLogin, LazySideBar, LazySignUp} from "./LazyNav.js";
 
 
 function Navs() {
@@ -23,7 +23,7 @@ function Navs() {
             <Route
                 path="/dashboard"
                 element={
-                    <LazySideBar child={<div> this is test component.</div>}/>
+                    <LazySideBar child={<LazyList />}/>
                 }
             />
             <Route
