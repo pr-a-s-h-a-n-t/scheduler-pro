@@ -36,7 +36,6 @@ const TaskList = () => {
                     )
                 })}
             </div>
-
             {isTaskModal && (
                 <TaskCreatorModal
                     reqBody={reqBody}
