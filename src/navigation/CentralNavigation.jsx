@@ -1,6 +1,5 @@
-import React, {useContext} from "react";
+import React  from "react";
 import {
-    BrowserRouter as Router,
     Route,
     Routes,
 } from "react-router-dom";
@@ -25,9 +24,7 @@ function Navs() {
             <Route
                 path="/dashboard/testing"
                 element={
-                    <LazySideBar>
-                        <div> this is test component.</div>
-                    </LazySideBar>
+                    <LazySideBar child={<div> this is test component.</div>}/>
                 }
             />
             <Route

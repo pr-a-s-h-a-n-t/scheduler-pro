@@ -6,10 +6,7 @@ import store from "./store/Store.js";
 import "./index.css";
 import CentralNavigation from "./navigation/CentralNavigation.jsx";
 import CentralLoader from "./components/CentralLoader";
-import App from "./App.jsx";
 import 'rsuite/dist/rsuite.min.css';
-import TaskCard from "./pages/dashboard/taskCard/TaskCard.jsx";
-import TaskList from "./pages/dashboard/TaskList.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
@@ -17,7 +14,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <BrowserRouter>
                 <Suspense fallback={<CentralLoader/>}>
                     <CentralNavigation />
-                   {/*<TaskList />*/}
                 </Suspense>
             </BrowserRouter>
         </Provider>
