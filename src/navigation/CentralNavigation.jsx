@@ -49,9 +49,9 @@ function Navs() {
             <Route
                 path="/dashboard"
                 element={
-                    <ProtectedRoute user={true}>
+                    // <ProtectedRoute user={true}>
                         <LazySideBar child={<div>Routing test!</div>}/>
-                    </ProtectedRoute>
+                    // </ProtectedRoute>
                 }
             />
         </Routes>
