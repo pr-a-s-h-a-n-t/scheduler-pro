@@ -2,7 +2,7 @@ import {toast} from 'react-hot-toast';
 
 export const showToast = (message, type = 'success') => {
 
-    if (message !== "") {
+    if (message) {
         switch (type) {
             case 'success':
                 toast.success(message);
