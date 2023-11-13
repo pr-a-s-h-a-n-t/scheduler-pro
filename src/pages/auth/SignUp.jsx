@@ -4,7 +4,6 @@ import styles from "./Auth.module.css";
 import signUpIcon from "../../assets/signup.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signupRequest } from "../../store/action/account";
 import { signup } from "../../api/account";
 
 const Signup = () => {

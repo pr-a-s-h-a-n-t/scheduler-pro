@@ -7,6 +7,7 @@ import "./index.css";
 import CentralNavigation from "./navigation/CentralNavigation.jsx";
 import CentralLoader from "./components/CentralLoader";
 import 'rsuite/dist/rsuite.min.css';
+import {Toaster} from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
@@ -14,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <BrowserRouter>
                 <Suspense fallback={<CentralLoader/>}>
                     <CentralNavigation />
+                    <Toaster />
                 </Suspense>
             </BrowserRouter>
         </Provider>
