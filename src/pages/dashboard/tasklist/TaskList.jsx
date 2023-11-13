@@ -1,9 +1,19 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import TaskCreatorModal from "../createTaskModal/TaskCreaterModal.jsx";
 import TaskCard from "./components/taskCard/TaskCard.jsx";
 import {tasks} from "../../../constant/Constant.js";
+import {useDispatch, useSelector} from "react-redux";
+import {getTaskList} from "../../../api/task.js";
+import {showToast} from "../../../utils/Notification.jsx";
 
 const TaskList = () => {
+    const dispatch = useDispatch();
+
+    const {
+        listResponse,
+        loading
+    } = useSelector(state => state.getTaskList);
+
     const [taskList, setTaskList] = useState(tasks);
     const [isTaskModal, setIsTaskModal] = useState(false);
     const [reqBody, setReqBody] = useState({
@@ -11,6 +21,18 @@ const TaskList = () => {
         description: '',
         date: new Date(),
     });
+
+    useEffect(() => {
+        const {userId} = JSON.parse(window.localStorage.getItem("userData"));
+        if (userId) dispatch(getTaskList({userId: userId}));
+    }, [])
+
+    useEffect(() => {
+        console.log("listresponse", listResponse)
+        if (listResponse?.status) showToast(listResponse?.message, 'success');
+        else showToast(listResponse?.message, 'error')
+
+    }, [listResponse])
 
     const handleCardClick = (task, index) => {
         setReqBody(prevState => ({
@@ -28,13 +50,15 @@ const TaskList = () => {
             </div>
 
             <div>
-                {taskList?.map((task) => {
+                {listResponse?.status ? listResponse?.data?.map((task) => {
                     return (
                         <div key={task?.id} onClick={() => handleCardClick(task, index)}>
-                            <TaskCard task={task} />
+                            <TaskCard task={task}/>
                         </div>
                     )
-                })}
+                }) : <div>No Task Found </div>
+
+                }
             </div>
             {isTaskModal && (
                 <TaskCreatorModal

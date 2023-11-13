@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
 import DateTimePicker from 'react-datetime-picker';
 import {DatePicker, Stack} from "rsuite";
 
 const TaskCreatorModal = ({open, handleHide, reqBody, setReqBody}) => {
-
 
     const handleReqBodyChange = (name, value) => {
         setReqBody((prevState) => ({
@@ -46,11 +44,7 @@ const TaskCreatorModal = ({open, handleHide, reqBody, setReqBody}) => {
                             onChange={(date) => handleReqBodyChange('date', date)}
                         />
                         <Stack direction="column" alignItems="flex-start" spacing={6}>
-                            {/*<DatePicker format="yyyy-MM" ranges={[]} />*/}
-                            {/*<DatePicker />*/}
-                            {/*<DatePicker format="yyyy-MM-dd HH:mm" />*/}
                             <DatePicker format="yyyy-MM-dd HH:mm:ss"/>
-                            {/*<DatePicker format="HH:mm:ss" ranges={[]} />*/}
                         </Stack>
                     </div>
                 </div>
