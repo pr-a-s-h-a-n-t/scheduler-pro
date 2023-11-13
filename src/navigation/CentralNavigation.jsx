@@ -51,8 +51,8 @@ function Navs() {
             <Route
                 path="/dashboard"
                 element={
-                    <ProtectedRoute user={true}>
-                        <LazySideBar child={<div>Routing test!</div>}/>
+                    <ProtectedRoute user={isAuth()}>
+                        <LazySideBar child={<LazyList/>}/>
                     </ProtectedRoute>
                 }
             />
