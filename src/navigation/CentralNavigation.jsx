@@ -18,10 +18,12 @@ function Navs() {
 
     }, []);
 
-    const ProtectedRoute = ({user}) => {
+
+    const ProtectedRoute = ({user, children}) => {
         if (!user) {
-            return <Navigate  index replace/>;
+            return <Navigate to="/login" replace/>;
         }
+        return children;
     };
 
     return (
@@ -49,9 +51,9 @@ function Navs() {
             <Route
                 path="/dashboard"
                 element={
-                    // <ProtectedRoute user={true}>
+                    <ProtectedRoute user={true}>
                         <LazySideBar child={<div>Routing test!</div>}/>
-                    // </ProtectedRoute>
+                    </ProtectedRoute>
                 }
             />
         </Routes>
