@@ -1,17 +1,35 @@
 import {
+    Navigate,
     Route,
-    Routes,
+    Routes, useNavigate,
 } from "react-router-dom";
 import {LazyLanding, LazyList, LazyLogin, LazySideBar, LazySignUp} from "./LazyNav.js";
+import {useEffect} from "react";
+import {isAuth} from "../utils/isAuth.js";
 
 
 function Navs() {
+    const navigateUser = useNavigate();
 
+    // check if the user is logged in or not!.
+    useEffect(() => {
+        const userData = JSON.parse(window.localStorage.getItem("userData"))
+        if (userData) navigateUser('/dashboard') //YES
+
+    }, []);
+
+    const ProtectedRoute = ({user}) => {
+        if (!user) {
+            return <Navigate  index replace/>;
+        }
+    };
 
     return (
 
         <Routes>
-            <Route index element={<LazyLanding/>}/>
+            <Route index
+                   element={<LazyLanding/>}
+            />
             <Route
                 path="/login"
                 element={<LazyLogin/>}
@@ -21,15 +39,19 @@ function Navs() {
                 element={<LazySignUp/>}
             />
             <Route
-                path="/dashboard"
+                path="/dashboard/scheduler"
                 element={
-                    <LazySideBar child={<LazyList />}/>
+                    <ProtectedRoute user={isAuth()}>
+                        <LazySideBar child={<div> this is Scheduler Page.</div>}/>
+                    </ProtectedRoute>
                 }
             />
             <Route
-                path="/dashboard/scheduler"
+                path="/dashboard"
                 element={
-                    <LazySideBar child={<div> this is Scheduler Page.</div>}/>
+                    <ProtectedRoute user={isAuth()}>
+                        <LazySideBar child={<LazyList/>}/>
+                    </ProtectedRoute>
                 }
             />
         </Routes>

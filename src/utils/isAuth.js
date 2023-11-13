@@ -1,4 +1,4 @@
 export const isAuth = () => {
-  const getEmail = localStorage.getItem("email");
-  return !!getEmail;
+  const userId = JSON.parse(window.localStorage.getItem("userData"));
+  return !!userId;
 };

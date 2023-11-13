@@ -3,6 +3,7 @@ import "./MainLanding.css";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { isAuth } from "../../utils/isAuth.js";
 import { useNavigate } from "react-router-dom";
+import {showToast} from "../../utils/Notification.jsx";
 
 const Hero = () => {
   const navigateUser = useNavigate();
@@ -10,7 +11,10 @@ const Hero = () => {
   const handleBtnClick = () => {
     //check  if user is logged in or not if yes redirect to dashboard or make him logged in
     if (isAuth()) navigateUser("/dashboard");
-    else navigateUser("/login");
+    else {
+        showToast("Please Login", "error");
+        navigateUser("/login")
+    };
   };
 
   return (
