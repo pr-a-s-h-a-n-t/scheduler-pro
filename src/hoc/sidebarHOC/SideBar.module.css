@@ -44,6 +44,14 @@
     font-size: clamp(12px, 1.5vw, 16px);
 }
 
+.user_name{
+    font-weight: 900;
+    font-size: 18px;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+
+}
+
 
 .logout:hover {
     background-color: red;

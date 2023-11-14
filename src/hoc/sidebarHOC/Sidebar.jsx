@@ -5,13 +5,15 @@ import styles from "./SideBar.module.css";
 import {FaRegCalendarAlt, FaRegChartBar, FaSignOutAlt} from "react-icons/fa";
 import {textToBinary} from "../../utils/binaryConverter.js";
 import Img from "../../assets/img.jpg"
+import {formatString} from "../../utils/formatString.js";
 
 const SidebarHOC = ({child}) => {
     const navigateUser = useNavigate();
     const path = useLocation();
+
     const [collapsed, setCollapsed] = useState(true);
     const [selectedTab, setSelectedTab] = useState("");
-
+    const [userData, setUserData] = useState(null);
     const pages = [
         {
             title: "Dashboard",
@@ -24,6 +26,14 @@ const SidebarHOC = ({child}) => {
             icons: "Schedule",
         },
     ];
+
+    useEffect(() => {
+        const userdata = JSON.parse(window.localStorage.getItem("userData"))
+        if (userdata) setUserData(userdata);
+        console.log("userdata", userdata);
+
+    }, [])
+
 
     useEffect(() => {
         const findPath = pages.filter((ele) => {
@@ -68,6 +78,9 @@ const SidebarHOC = ({child}) => {
                     className={styles.menu_wrapper}
                     style={{marginTop: collapsed ? "20vh" : "5vh"}}
                 >
+                    {
+                        !collapsed && <h1 className={styles.user_name}>Welcome {formatString(userData?.name)} </h1>
+                    }
                     {pages?.map((ele, index) => (
                         <div
                             key={index}
