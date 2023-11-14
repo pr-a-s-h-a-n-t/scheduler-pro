@@ -14,8 +14,8 @@ const TaskList = () => {
         loading
     } = useSelector(state => state.getTaskList);
 
-    const [taskList, setTaskList] = useState(tasks);
     const [isTaskModal, setIsTaskModal] = useState(false);
+    const [count, setCount] = useState(0);
     const [reqBody, setReqBody] = useState({
         title: '',
         description: '',
@@ -28,10 +28,14 @@ const TaskList = () => {
     }, [])
 
     useEffect(() => {
-        console.log("listresponse", listResponse)
         if (listResponse?.status) showToast(listResponse?.message, 'success');
-        else showToast(listResponse?.message, 'error')
-
+        else {
+            if (count >= 1) {
+                return;
+            }
+            setCount(1);
+            showToast(listResponse?.message, 'error');
+        }
     }, [listResponse])
 
     const handleCardClick = (task, index) => {
