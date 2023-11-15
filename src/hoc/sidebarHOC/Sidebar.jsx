@@ -22,7 +22,7 @@ const SidebarHOC = ({child}) => {
         },
         {
             title: "Schedule Now",
-            link: "/dashboard/scheduler",
+            link: "/dashboard/schedule",
             icons: "Schedule",
         },
     ];

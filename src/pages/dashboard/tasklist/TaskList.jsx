@@ -16,11 +16,7 @@ const TaskList = () => {
 
     const [isTaskModal, setIsTaskModal] = useState(false);
     const [count, setCount] = useState(0);
-    const [reqBody, setReqBody] = useState({
-        title: '',
-        description: '',
-        date: new Date(),
-    });
+
 
     useEffect(() => {
         const {userId} = JSON.parse(window.localStorage.getItem("userData"));
@@ -66,8 +62,6 @@ const TaskList = () => {
             </div>
             {isTaskModal && (
                 <TaskCreatorModal
-                    reqBody={reqBody}
-                    setReqBody={setReqBody}
                     open={isTaskModal}
                     handleHide={() => setIsTaskModal(false)}
                 />

@@ -52,7 +52,6 @@
 
 }
 
-
 .logout:hover {
     background-color: red;
     color: #FFFFFF;
@@ -80,7 +79,6 @@
 .main_content {
     min-width: 80vw;
     max-width: 85%;
-    border: 1px solid red;
     min-height: 85vh;
     margin: 5% auto 0;
     display: flex;

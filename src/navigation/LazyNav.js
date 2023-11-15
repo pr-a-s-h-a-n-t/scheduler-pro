@@ -1,4 +1,5 @@
 import { lazy } from "react";
+
 export const LazyLanding = lazy(() =>
   import("../pages/landingPage/MainLanding.jsx")
 );
@@ -8,3 +9,4 @@ export const LazySideBar = lazy(() => import("../hoc/sidebarHOC/Sidebar.jsx"));
 export const LazyList = lazy(() =>
   import("../pages/dashboard/tasklist/TaskList.jsx")
 );
+export const LazyScheduleTaskNow = lazy(()=> import("../pages/dashboard/schedule/Schedule.jsx"));

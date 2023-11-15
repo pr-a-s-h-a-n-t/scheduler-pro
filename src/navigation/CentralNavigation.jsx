@@ -3,7 +3,14 @@ import {
     Route,
     Routes, useNavigate,
 } from "react-router-dom";
-import {LazyLanding, LazyList, LazyLogin, LazySideBar, LazySignUp} from "./LazyNav.js";
+import {
+    LazyLanding,
+    LazyList,
+    LazyLogin,
+    LazySideBar,
+    LazySignUp,
+    LazyScheduleTaskNow
+} from "./LazyNav.js";
 import {useEffect} from "react";
 import {isAuth} from "../utils/isAuth.js";
 
@@ -41,10 +48,10 @@ function Navs() {
                 element={<LazySignUp/>}
             />
             <Route
-                path="/dashboard/scheduler"
+                path="/dashboard/schedule"
                 element={
                     <ProtectedRoute user={isAuth()}>
-                        <LazySideBar child={<div> this is Scheduler Page.</div>}/>
+                        <LazySideBar child={<LazyScheduleTaskNow />}/>
                     </ProtectedRoute>
                 }
             />
