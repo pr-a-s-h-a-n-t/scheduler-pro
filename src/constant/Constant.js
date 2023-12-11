@@ -26,4 +26,4 @@ export const tasks = [
     }
 ];
 
-export const BASE_URL = `https://taskmanager-production-f206.up.railway.app`;
+export const BASE_URL = `https://taskmanager-production-268b.up.railway.app/`;
